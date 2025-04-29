@@ -15,7 +15,7 @@
         content="Reviving Hieroglyphics: From Static Ancient Symbols to Expressive Animation">
   <meta name="keywords" content="Hieroglyphics Animation, Text-to-Video Priors, Trajectory Control, Multi Vector characters Animation, As-Rigid-As-Possible">
   <meta name="viewport" content="width=device-width, initial-scale=0.1">
-  <title>AniClipart: CliparReviving Hieroglyphics: From Static Ancient Symbols to Expressive Animation</title>
+  <title>Reviving Hieroglyphics: From Static Ancient Symbols to Expressive Animation</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -94,12 +94,11 @@
     
         <div class="item">
           <p style="margin-bottom: 30px">
-        <video poster="" id="tree" autoplay controls muted loop style="width: 200%; max-width: none; margin-left: -50%;">
-          <source src="static/videos/main_video/video_sketch_new.mp4"
+        <video poster="" id="tree" autoplay controls muted loop>
+          <source src="static/video/video.mp4"
           type="video/mp4">
-
         </video>
-        <h6 class="caption">We recommend watching the video with sound on</h6>
+        <h6 class="caption"></h6>
         </p>
       </div>
   </div>
@@ -316,7 +315,7 @@
           <img class="gallery_img" src="static/images/details/svgs/deer.svg" alt="deer"/>
           <img class="gallery_img_path" src="static/images/details/paths/deer.svg" alt="deer"/>
         </div>
-        <!-- <div style="height: 10px;"></div> -->
+        <div style="height: 20px;"></div>
         <div class="comp_gallery">
           <div class="captioned_video">
               <video class="gallery_img" autoplay loop muted playsinline>
@@ -410,7 +409,7 @@
             <img class="gallery_img_path" src="static/images/details/paths/xiang1.svg" alt="deer"/>
             <img class="gallery_img_path" src="static/images/details/paths/xiang2.svg" alt="deer"/>
           </div>
-          <div style="height: 10px;"></div>
+          <div style="height: 20px;"></div>
           <div class="comp_gallery">
             <div class="captioned_video">
                 <video class="gallery_img" autoplay loop muted playsinline>
@@ -519,8 +518,8 @@
             <div class="ablation_gallery">
 
               <div class="captioned_video">
-                <img class="gallery_img_ab" src="static/images/details/svgs/ma.svg"/>
-                <img class="gallery_img_path_ab" src="static/images/details/paths/ma.svg"/>
+                <img class="gallery_img" src="static/images/details/svgs/ma.svg"/>
+                <img class="gallery_img_path" src="static/images/details/paths/ma.svg"/>
               </div>
           
               <div class="captioned_video">
@@ -545,8 +544,8 @@
 
 
               <div class="captioned_video">
-                <img class="gallery_img_ab" src="static/images/details/svgs/xia.svg"/>
-                <img class="gallery_img_path_ab" src="static/images/details/paths/xia.svg"/>
+                <img class="gallery_img" src="static/images/details/svgs/xia.svg"/>
+                <img class="gallery_img_path" src="static/images/details/paths/xia.svg"/>
               </div>
           
               <div class="captioned_video">
@@ -654,24 +653,6 @@ document.getElementById('imgModal').onclick = function() {
 
 .captioned_video {
   position: relative;
-}
-
-.gallery_img_ab {
-  width: 130px;
-  height: 130px;
-  position: relative;
-  z-index: 1;
-  object-fit: contain;
-}
-
-.gallery_img_path_ab {
-  width: 130px;
-  height: 130px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  object-fit: contain;
 }
 
 </style>
