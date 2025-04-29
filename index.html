@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B9N9911MNC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B9N9911MNC');
+  </script>
+  
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Reviving Hieroglyphics: From Static Ancient Symbols to Expressive Animation">
+  <meta name="keywords" content="Hieroglyphics Animation, Text-to-Video Priors, Trajectory Control, Multi Vector characters Animation, As-Rigid-As-Possible">
+  <meta name="viewport" content="width=device-width, initial-scale=0.1">
+  <title>AniClipart: CliparReviving Hieroglyphics: From Static Ancient Symbols to Expressive Animation</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-tooltip.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!--Title block-->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop" id="top">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Reviving Hieroglyphics: <br>From Static Ancient Symbols to<br>Expressive Animation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">ANONYMOUS AUTHOR(S)</a></span>
+          </div>
+          <br>
+          <div class="is-size-4 publication-authors">
+            <span class="author-block">SIGRAPH Asia 2025 Under Review</span> 
+          </div>
+
+
+          <div class="columns is-centered has-text-centered is-variable is-8">
+          <div class="column is-three-quarters is-centered has-text-centered">
+            <div class="publication-links ">
+
+            <span class="link-block">
+              <a href="#details"
+                  class="nav-link button-55 is-normal">
+                <span>Output Details</span>
+                </a>
+            </span>
+
+            <span class="link-block">
+              <a href="#comparisons"
+                 class="nav-link button-55 is-normal">
+                <span>Comparisons</span>
+                </a>
+            </span>
+
+            <span class="link-block">
+              <a href="#ablation"
+                 class="nav-link button-55 is-normal">
+                <span>Ablation Study</span>
+                </a>
+            </span>
+
+          </div>
+
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video-->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    
+        <div class="item">
+          <p style="margin-bottom: 30px">
+        <video poster="" id="tree" autoplay controls muted loop style="width: 200%; max-width: none; margin-left: -50%;">
+          <source src="static/videos/main_video/video_sketch_new.mp4"
+          type="video/mp4">
+
+        </video>
+        <h6 class="caption">We recommend watching the video with sound on</h6>
+        </p>
+      </div>
+  </div>
+</section>
+
+<!-- Abstract. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+        <p>
+            Hieroglyphics, as one of the earliest writing systems, convey abstract meanings through symbolic and pictorial forms. While previous research has mainly focused on static hieroglyphic image generation and classification, the lack of dynamic and interpretable representations limits public engagement and understanding. To bridge this gap, we introduce the task of Controllable Hieroglyphics Animation Generation (CHAG), which aims to generate multi-character, trajectory-controllable hieroglyphic animations.
+            <br>
+            Despite the emergence of powerful Text-to-Video (T2V) and Image-to-Video (I2V) models, as well as various animation generation methods, directly applying them to symbolic glyphs remains challenging due to biases toward realism, structural instability, and lack of fine-grained motion control; moreover, none of these approaches are designed to preserve the symbolic integrity and motion semantics essential for hieroglyphic animation. To address these issues, we propose an end-to-end framework that transforms vector-based hieroglyphic inputs into expressive and coherent animations. Our approach extracts skeletons from glyphs to drive motion while preserving structural consistency through As-Rigid-As-Possible (ARAP) deformation. A differentiable video diffusion model enables local motion refinement guided by semantic prompts, while Bézier-curve-based trajectory modeling ensures precise global movement control. Furthermore, geometry-aware losses regularize skeleton structure throughout animation.
+            Extensive experiments demonstrate that our method achieves high-quality, structurally consistent hieroglyphic animations with controllable multi-part motions, highlighting its potential for cultural revitalization and educational applications.
+        </p>
+        </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title is-3">How does it work?</h2><br>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-one-fifths has-text-centered">
+          <img id="network" src="static/images/method/pipeline.png" style="max-width:200%;height:auto;display:block;margin:auto;cursor:zoom-in;" />
+          <div class="content has-text-justified">
+              <br>
+              Animation of hieroglyphic characters from static glyphs to dynamic animation, showcasing the preservation of structural integrity and motion through our method. The generated animations are guided by prompts and trajectories, demonstrating high-quality, interpretable character movement.
+          </div>
+      </div>
+  </div>
+  </section>
+
+<!--Gallery-->
+<section class="section">
+  <div class="container is-widescreen" id="details">
+    <div class="link-block ">
+      <a href="#top"
+          class="nav-link button-55 is-normal">
+        <span>Go to Top</span>
+        </a>
+    </div>
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title is-3">Output Details</h2><br>
+    </div>
+    <div class="section is-centered has-text-centered">
+      If images are not loaded properly, please refresh the page.
+    </div>
+    <div class="container is-max-desktop is-centered has-text-centered">
+      <div class="gallery">
+
+
+        <div class="captioned_video">
+          <div class="inner_gallery">
+              <img class="gallery_img small-img" src="static/images/details/character/deer.svg" alt="extra"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/deer.svg" alt="deer"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/deer.svg" alt="deer"/>
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/deer.gif" alt="deer"/>
+            </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A deer is running." title="">A deer is running [..]</h6>
+      </div>
+      
+      <div class="captioned_video">
+        <div class="inner_gallery">
+            <img class="gallery_img small-img" src="static/images/details/character/turtle.svg" alt="extra"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/turtle.svg" alt="deer"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/turtle.svg" alt="deer"/>
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/turtle.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A turtle floats up and down in the water, extending and retracting its legs." title="">A turtle floats up [..]</h6>
+      </div>
+
+      <div class="captioned_video">
+        <div class="inner_gallery">
+            <img class="gallery_img small-img" src="static/images/details/character/wu.svg" alt="extra"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/wu.svg" alt="deer"/>
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/turtle.svg" alt="deer"/> -->
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/wu.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A woman dancer is dancing with her legs moving up and down, and waving her hands." title="">A dancer is dancing [..]</h6>
+      </div>
+
+      <div class="captioned_video">
+        <div class="inner_gallery">
+            <img class="gallery_img small-img" src="static/images/details/character/che.svg" alt="extra"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/che.svg" alt="deer"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/che.svg" alt="deer"/>
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/che.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A car is moving, its two wheels are turning." title="">A car is moving [..]</h6>
+      </div>
+
+      <div class="captioned_video">
+        <div class="inner_gallery">
+            <img class="gallery_img small-img" src="static/images/details/character/ma.svg" alt="extra"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/ma.svg" alt="deer"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/ma.svg" alt="deer"/>
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/ma.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A horse is running and jumping over." title="">A horse is running [..]</h6>
+      </div>
+
+      <div class="captioned_video">
+        <div class="inner_gallery">
+            <img class="gallery_img small-img" src="static/images/details/character/gu.svg" alt="extra"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/gu.svg" alt="deer"/>
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/gu.svg" alt="deer"/> -->
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/gu.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="The drum is vibrating. A man is beating the drum." title="">The drum is vibrating [..]</h6>
+      </div>
+
+      <div class="captioned_video">
+        <div class="inner_gallery">
+            <img class="gallery_img small-img" src="static/images/details/character/xiu.svg" alt="extra"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/xiu.svg" alt="deer"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/xiu.svg" alt="deer"/>
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/xiu.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A tree is waving in the wind. A person is dancing." title="">A tree is waving [..]</h6>
+      </div>
+
+      <div class="captioned_video">
+        <div class="inner_gallery">
+            <img class="gallery_img small-img" src="static/images/details/character/zhu.svg" alt="extra"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/zhu.svg" alt="deer"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/zhu.svg" alt="deer"/>
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/zhu.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A man is praying, swaying back and forth on his knees. The torch is shaking." title="">A man is praying [..]</h6>
+      </div>
+      
+      <div class="captioned_video">
+        <div class="inner_gallery">
+            <img class="gallery_img small-img" src="static/images/details/character/yan.svg" alt="extra"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/yan.svg" alt="deer"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/yan.svg" alt="deer"/>
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/yan.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A cluster of flames is burning." title="">A cluster of flames [..]</h6>
+      </div>
+
+      <div class="captioned_video">
+        <div class="inner_gallery">
+            <img class="gallery_img small-img" src="static/images/details/character/chun.svg" alt="extra"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/chun.svg" alt="deer"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/chun.svg" alt="deer"/>
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/chun.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A person is is waving his arms. A tree is waving." title="">A person is is waving [..]</h6>
+      </div>
+
+      <div class="captioned_video">
+        <div class="inner_gallery">
+            <img class="gallery_img small-img" src="static/images/details/character/xia.svg" alt="extra"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/xia.svg" alt="deer"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/xia.svg" alt="deer"/>
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/xia.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A person is bowing vigorously up and down. A sun is shining." title="">A person is bowing [..]</h6>
+      </div>
+
+      <div class="captioned_video">
+        <div class="inner_gallery">
+            <img class="gallery_img small-img" src="static/images/details/character/pic3.svg" alt="extra"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/pic3.svg" alt="deer"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/pic3.svg" alt="deer"/>
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/pic3.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A deer is running. The sun is shining. A tree is waving." title="">A deer is running [..]</h6>
+      </div>
+
+      <!-- <div class="captioned_video">
+        <div class="inner_gallery">
+            <img class="gallery_img small-img" src="static/images/details/character/fen.svg" alt="extra"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/fen.svg" alt="deer"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/fen.svg" alt="deer"/>
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/fen.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A cluster of fire is burning. A tree is waving. [2]A tree is waving." title="">A cluster of fire [..]</h6>
+      </div> -->
+
+      
+      
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Comparisons -->
+<section class="section hero is-light">
+  <div class="container is-widescreen" id="comparisons">
+    <div class="link-block ">
+      <a href="#top"
+          class="nav-link button-55 is-normal">
+        <span>Go to Top</span>
+        </a>
+    </div>
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title is-3">Comparisons</h2><br>
+    </div>
+    <div class="columns is-centered has-text-centered is-variable is-8">
+      <div class="column is-two-fifths is-centered has_border_right">
+        <div style="position: relative; width: 200px; margin: 0 auto;">
+          <img class="gallery_img" src="static/images/details/svgs/deer.svg" alt="deer"/>
+          <img class="gallery_img_path" src="static/images/details/paths/deer.svg" alt="deer"/>
+        </div>
+        <!-- <div style="height: 10px;"></div> -->
+        <div class="comp_gallery">
+          <div class="captioned_video">
+              <video class="gallery_img" autoplay loop muted playsinline>
+                  <source src="static/images/compare/deer/Tora.mp4" type="video/mp4">
+              </video>
+              <h6 class="caption">Tora</h6>
+          </div>
+          <div class="captioned_video">
+              <video class="gallery_img" autoplay loop muted playsinline>
+                  <source src="static/images/compare/deer/Wan2.1.mp4" type="video/mp4">
+              </video>
+              <h6 class="caption">Wan2.1</h6>
+          </div>
+          <div class="captioned_video">
+              <video class="gallery_img" autoplay loop muted playsinline>
+                  <source src="static/images/compare/deer/tooncrafter.mp4" type="video/mp4">
+              </video>
+              <h6 class="caption">ToonCrafter</h6>
+          </div>
+          <div class="captioned_video">
+              <video class="gallery_img" autoplay loop muted playsinline>
+                  <source src="static/images/compare/deer/DynamiCrafter.mp4" type="video/mp4">
+              </video>
+              <h6 class="caption">Dynamicrafter</h6>
+          </div>
+          <div class="captioned_video">
+              <img class="gallery_img" src="static/images/compare/deer/aniclipart.gif" alt="man_fencing"/>
+              <h6 class="caption">AniClipart</h6>
+          </div>
+          <div class="captioned_video">
+              <img class="gallery_img" src="static/images/compare/deer/livesketch.gif" alt="man_fencing"/>
+              <h6 class="caption">LiveSketch</h6>
+          </div>
+          <div class="captioned_video_ours">
+              <img class="gallery_img" src="static/images/details/gifs/deer.gif" alt="man_fencing"/>
+              <h6 class="caption">Ours</h6>
+          </div>
+        </div>
+      </div>
+      <div class="column is-two-fifths is-centered has_border_left">
+        <div style="position: relative; width: 200px; margin: 0 auto;">
+            <img class="gallery_img" src="static/images/details/svgs/turtle.svg" alt="deer"/>
+            <img class="gallery_img_path" src="static/images/details/paths/turtle.svg" alt="deer"/>
+          </div>
+          <div style="height: 20px;"></div>
+          <div class="comp_gallery">
+            <div class="captioned_video">
+                <video class="gallery_img" autoplay loop muted playsinline>
+                    <source src="static/images/compare/turtle/Tora.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">Tora</h6>
+            </div>
+            <div class="captioned_video">
+                <video class="gallery_img" autoplay loop muted playsinline>
+                    <source src="static/images/compare/turtle/Wan2.1.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">Wan2.1</h6>
+            </div>
+            <div class="captioned_video">
+                <video class="gallery_img" autoplay loop muted playsinline>
+                    <source src="static/images/compare/turtle/tooncrafter.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">ToonCrafter</h6>
+            </div>
+            <div class="captioned_video">
+                <video class="gallery_img" autoplay loop muted playsinline>
+                    <source src="static/images/compare/turtle/DynamiCrafter.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">Dynamicrafter</h6>
+            </div>
+            <div class="captioned_video">
+                <img class="gallery_img" src="static/images/compare/turtle/aniclipart.gif" alt="man_fencing"/>
+                <h6 class="caption">AniClipart</h6>
+            </div>
+            <div class="captioned_video">
+                <img class="gallery_img" src="static/images/compare/turtle/livesketch.gif" alt="man_fencing"/>
+                <h6 class="caption">LiveSketch</h6>
+            </div>
+            <div class="captioned_video_ours">
+                <img class="gallery_img" src="static/images/details/gifs/turtle.gif" alt="man_fencing"/>
+                <h6 class="caption">Ours</h6>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered is-variable is-8">
+        <div class="column is-two-fifths is-centered has_border_right">
+          <div style="position: relative; width: 200px; margin: 0 auto;">
+            <img class="gallery_img" src="static/images/details/svgs/xiang.svg" alt="deer"/>
+            <img class="gallery_img_path" src="static/images/details/paths/xiang1.svg" alt="deer"/>
+            <img class="gallery_img_path" src="static/images/details/paths/xiang2.svg" alt="deer"/>
+          </div>
+          <div style="height: 10px;"></div>
+          <div class="comp_gallery">
+            <div class="captioned_video">
+                <video class="gallery_img" autoplay loop muted playsinline>
+                    <source src="static/images/compare/xiang/tora_xiang.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">Tora</h6>
+            </div>
+            <div class="captioned_video">
+                <video class="gallery_img" autoplay loop muted playsinline>
+                    <source src="static/images/compare/xiang/Wan2.1_xiang.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">Wan2.1</h6>
+            </div>
+            <div class="captioned_video">
+                <video class="gallery_img" autoplay loop muted playsinline>
+                    <source src="static/images/compare/xiang/tooncrafter_xiang.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">ToonCrafter</h6>
+            </div>
+            <div class="captioned_video">
+                <video class="gallery_img" autoplay loop muted playsinline>
+                    <source src="static/images/compare/xiang/dynamic_xiang.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">Dynamicrafter</h6>
+            </div>
+            <div class="captioned_video">
+                <img class="gallery_img" src="static/images/compare/xiang/aniclipart.gif" alt="man_fencing"/>
+                <h6 class="caption">AniClipart</h6>
+            </div>
+            <div class="captioned_video">
+                <img class="gallery_img" src="static/images/compare/xiang/livesketch.gif" alt="man_fencing"/>
+                <h6 class="caption">LiveSketch</h6>
+            </div>
+            <div class="captioned_video_ours">
+                <img class="gallery_img" src="static/images/details/gifs/xiang.gif" alt="man_fencing"/>
+                <h6 class="caption">Ours</h6>
+            </div>
+          </div>
+        </div>
+        <div class="column is-two-fifths is-centered has_border_left">
+          <div style="position: relative; width: 200px; margin: 0 auto;">
+              <img class="gallery_img" src="static/images/details/svgs/fen.svg" alt="deer"/>
+              <img class="gallery_img_path" src="static/images/details/paths/fen.svg" alt="deer"/>
+            </div>
+            <div style="height: 20px;"></div>
+            <div class="comp_gallery">
+              <div class="captioned_video">
+                  <video class="gallery_img" autoplay loop muted playsinline>
+                      <source src="static/images/compare/fen/tora.mp4" type="video/mp4">
+                  </video>
+                  <h6 class="caption">Tora</h6>
+              </div>
+              <div class="captioned_video">
+                  <video class="gallery_img" autoplay loop muted playsinline>
+                      <source src="static/images/compare/fen/Wan2.1.mp4" type="video/mp4">
+                  </video>
+                  <h6 class="caption">Wan2.1</h6>
+              </div>
+              <div class="captioned_video">
+                  <video class="gallery_img" autoplay loop muted playsinline>
+                      <source src="static/images/compare/fen/tooncrafter.mp4" type="video/mp4">
+                  </video>
+                  <h6 class="caption">ToonCrafter</h6>
+              </div>
+              <div class="captioned_video">
+                  <video class="gallery_img" autoplay loop muted playsinline>
+                      <source src="static/images/compare/fen/dynamic.mp4" type="video/mp4">
+                  </video>
+                  <h6 class="caption">Dynamicrafter</h6>
+              </div>
+              <div class="captioned_video">
+                  <img class="gallery_img" src="static/images/compare/fen/aniclipart.gif" alt="man_fencing"/>
+                  <h6 class="caption">AniClipart</h6>
+              </div>
+              <div class="captioned_video">
+                  <img class="gallery_img" src="static/images/compare/fen/livesketch.gif" alt="man_fencing"/>
+                  <h6 class="caption">LiveSketch</h6>
+              </div>
+              <div class="captioned_video_ours">
+                  <img class="gallery_img" src="static/images/details/gifs/fen.gif" alt="man_fencing"/>
+                  <h6 class="caption">Ours</h6>
+              </div>
+            </div>
+        </div>
+      </div>
+  <div class="section is-centered has-text-centered">
+    We compare our method to six baselines: Tora</a>, Wan2.1</a>, ToonCrafter</a>, Dynamicrafter</a>, AniClipart </a>and LiveSketch</a>.
+    </div>
+  </div>
+</section>
+
+<!-- Ablation -->
+<section class="section">
+  <div class="container is-widescreen" id="ablation">
+    <div class="link-block ">
+      <a href="#top"
+          class="nav-link button-55 is-normal">
+        <span>Go to Top</span>
+        </a>
+    </div>
+      <div class="section-title has-text-centered is-centered">
+        <h2 class="title is-3">Ablation Study</h2><br>
+      </div>
+        <div class="columns is-centered has-text-centered is-variable is-8">
+          <div class="column is-one-quarters is-centered">
+            <div class="ablation_gallery">
+
+              <div class="captioned_video">
+                <img class="gallery_img_ab" src="static/images/details/svgs/ma.svg"/>
+                <img class="gallery_img_path_ab" src="static/images/details/paths/ma.svg"/>
+              </div>
+          
+              <div class="captioned_video">
+                <img class="gallery_img" src="static/images/details/gifs/ma.gif"/>
+              </div>
+
+              <div class="captioned_video">
+                <img class="gallery_img" src="static/images/ablation/ma/wo_te.gif"/>
+              </div>
+
+              <div class="captioned_video">
+                <img class="gallery_img" src="static/images/ablation/ma/wo_sg.gif"/>
+              </div>
+
+              <div class="captioned_video">
+                <img class="gallery_img" src="static/images/ablation/ma/wo_ske.gif"/>
+              </div>
+
+              <div class="captioned_video">
+                <img class="gallery_img" src="static/images/ablation/ma/wo_conf.gif"/>
+              </div>
+
+
+              <div class="captioned_video">
+                <img class="gallery_img——ab" src="static/images/details/svgs/xia.svg"/>
+                <img class="gallery_img_path_ab" src="static/images/details/paths/xia.svg"/>
+              </div>
+          
+              <div class="captioned_video">
+                <img class="gallery_img" src="static/images/details/gifs/xia.gif"/>
+              </div>
+
+              <div class="captioned_video">
+                <img class="gallery_img" src="static/images/ablation/xia/wo_te.gif"/>
+              </div>
+
+              <div class="captioned_video">
+                <img class="gallery_img" src="static/images/ablation/xia/wo_sg.gif"/>
+              </div>
+
+              <div class="captioned_video">
+                <img class="gallery_img" src="static/images/ablation/xia/wo_ske.gif"/>
+              </div>
+
+              <div class="captioned_video">
+                <img class="gallery_img" src="static/images/ablation/xia/wo_conf.gif"/>
+              </div>
+
+          
+      
+              <div class="captioned_video">
+                <h6 class="caption">Input</h6>
+              </div>
+              <div class="captioned_video">
+                <h6 class="caption">Default</h6>
+              </div>
+              <div class="captioned_video">
+                <h6 class="caption">w/o Trajectory Extractor</h6>
+              </div>
+              <div class="captioned_video">
+                <h6 class="caption"> w/o Skeleton Generation</h6>
+              </div>
+              <div class="captioned_video">
+                <h6 class="caption">w/o Skeleton Loss</h6>
+              </div>
+              <div class="captioned_video">
+                <h6 class="caption">w/o Conformal Loss</h6>
+              </div>  
+            </div> 
+          </div>
+        </div>
+
+</section>
+
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+        ANONYMOUS AUTHOR(S) 
+    </p>
+  </div>
+</footer>
+
+<!-- 放大图片弹窗 -->
+<div id="imgModal" style="display:none;position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;">
+  <img id="modalImg" src="" style="max-width:90vw;max-height:90vh;box-shadow:0 0 20px #000;border-radius:8px;">
+</div>
+
+<script>
+document.getElementById('network').onclick = function() {
+  var modal = document.getElementById('imgModal');
+  var modalImg = document.getElementById('modalImg');
+  modal.style.display = 'flex';
+  modalImg.src = this.src;
+};
+document.getElementById('imgModal').onclick = function() {
+  this.style.display = 'none';
+};
+</script>
+
+<style>
+.small-img {
+  height: 120px;
+  width: auto;
+  display: block;
+  margin: auto;
+}
+
+.gallery_img_path {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+  z-index: 2;
+}
+
+
+.column.is-two-fifths {
+  position: relative;
+}
+
+
+.ablation_gallery {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);  /* 改为6列 */
+  gap: 10px;
+  width: 1000px;  /* 调整总宽度 */
+  margin: 0 auto;
+}
+
+.captioned_video {
+  position: relative;
+}
+
+.gallery_img_ab {
+  width: 130px;
+  height: 130px;
+  position: relative;
+  z-index: 1;
+  object-fit: contain;
+}
+
+.gallery_img_path_ab {
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  object-fit: contain;
+}
+
+</style>
+
+</body>
+</html>
