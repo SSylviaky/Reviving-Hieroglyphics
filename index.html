@@ -112,10 +112,13 @@
       <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
         <p>
-            Hieroglyphics, as one of the earliest writing systems, convey abstract meanings through symbolic and pictorial forms. While previous research has mainly focused on static hieroglyphic image generation and classification, the lack of dynamic and interpretable representations limits public engagement and understanding. To bridge this gap, we introduce the task of Controllable Hieroglyphics Animation Generation (CHAG), which aims to generate multi-character, trajectory-controllable hieroglyphic animations.
+            Hieroglyphics, as one of the earliest writing systems, convey abstract meanings through symbolic and pictorial forms. While previous research has mainly focused on static hieroglyphs image generation and classification, the lack of dynamic and interpretable representations limits public engagement and understanding. 
+            To bridge this gap, we introduce the task of Controllable Hieroglyphics Animation Generation (CHAG), which aims to generate multi-character, trajectory-controllable hieroglyphics animations.
             <br>
-            Despite the emergence of powerful Text-to-Video (T2V) and Image-to-Video (I2V) models, as well as various animation generation methods, directly applying them to symbolic glyphs remains challenging due to biases toward realism, structural instability, and lack of fine-grained motion control; moreover, none of these approaches are designed to preserve the symbolic integrity and motion semantics essential for hieroglyphic animation. To address these issues, we propose an end-to-end framework that transforms vector-based hieroglyphic inputs into expressive and coherent animations. Our approach extracts skeletons from glyphs to drive motion while preserving structural consistency through As-Rigid-As-Possible (ARAP) deformation. A differentiable video diffusion model enables local motion refinement guided by semantic prompts, while Bézier-curve-based trajectory modeling ensures precise global movement control. Furthermore, geometry-aware losses regularize skeleton structure throughout animation.
-            Extensive experiments demonstrate that our method achieves high-quality, structurally consistent hieroglyphic animations with controllable multi-part motions, highlighting its potential for cultural revitalization and educational applications.
+            Despite the emergence of powerful Text-to-Video (T2V) and Image-to-Video (I2V) models, as well as various animation generation methods, directly applying them to symbolic glyphs remains challenging due to biases toward realism, structural instability, and lack of fine-grained motion control; moreover, none of these approaches are designed to preserve the symbolic integrity and motion semantics essential for hieroglyphics animation. 
+            To address these issues, we propose an end-to-end framework called HieroAnimate that transforms vector-based hieroglyphs inputs into expressive and coherent animations. 
+            Our approach extracts skeletons from glyphs to drive motion while preserving structural consistency through As-Rigid-As-Possible (ARAP) deformation. A differentiable video diffusion model enables local motion refinement guided by semantic prompts, while Bézier-curve-based trajectory modeling ensures precise global movement control. Furthermore, geometry-aware losses regularize skeleton structure throughout animation. 
+            Extensive experiments demonstrate that our method achieves high-quality, structurally consistent hieroglyphics animations with controllable multi-part motions, highlighting its potential for cultural revitalization and educational applications.
         </p>
         </div>
     </div>
@@ -133,8 +136,7 @@
       <div class="column is-one-fifths has-text-centered">
           <img id="network" src="static/images/method/pipeline.png" style="max-width:200%;height:auto;display:block;margin:auto;cursor:zoom-in;" />
           <div class="content has-text-justified">
-              <br>
-              Animation of hieroglyphic characters from static glyphs to dynamic animation, showcasing the preservation of structural integrity and motion through our method. The generated animations are guided by prompts and trajectories, demonstrating high-quality, interpretable character movement.
+              <br>Pipeline of our framework.It consists of three stages. Animation Conditioning: generation of structured prompts, modeling of global motion trajectories, and initialization of character skeleton keyframes; Animation Generation: motion-guided character deformation via video diffusion models with structural consistency constraints; and Mergence: multi-character trajectory fusion, temporal alignment, and optional background integration.
           </div>
       </div>
   </div>
@@ -271,6 +273,16 @@
 
       <div class="captioned_video">
         <div class="inner_gallery">
+            <img class="gallery_img small-img" src="static/images/details/character/fen.svg" alt="extra"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/fen.svg" alt="deer"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/fen.svg" alt="deer"/>
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/fen.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A cluster of fire is burning. A tree is waving. [2]A tree is waving." title="">A cluster of fire [..]</h6>
+      </div>
+
+      <div class="captioned_video">
+        <div class="inner_gallery">
             <img class="gallery_img small-img" src="static/images/details/character/pic3.svg" alt="extra"/>
               <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/pic3.svg" alt="deer"/>
               <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/pic3.svg" alt="deer"/>
@@ -279,15 +291,28 @@
           <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A deer is running. The sun is shining. A tree is waving." title="">A deer is running [..]</h6>
       </div>
 
-      <!-- <div class="captioned_video">
+      <div class="captioned_video">
         <div class="inner_gallery">
-            <img class="gallery_img small-img" src="static/images/details/character/fen.svg" alt="extra"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/fen.svg" alt="deer"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/fen.svg" alt="deer"/>
-              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/fen.gif" alt="deer"/>
+            <img class="gallery_img small-img" src="static/images/details/character/qi.svg" alt="extra"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/riding.svg" alt="deer"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/riding1.svg" alt="deer"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/riding2.svg" alt="deer"/>
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/riding.gif" alt="deer"/>
           </div>
-          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A cluster of fire is burning. A tree is waving. [2]A tree is waving." title="">A cluster of fire [..]</h6>
-      </div> -->
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A horse is running, with its legs gracefully galloping in powerful, rhythmic strides. A man is waving his arms." title="">A horse is running [..]</h6>
+      </div>
+
+      <div class="captioned_video">
+        <div class="inner_gallery">
+            <img class="gallery_img small-img" src="static/images/details/character/she.svg" alt="extra"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/jian.svg" alt="deer"/>
+              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/jian.svg" alt="deer"/>
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/jian.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A horse is running, with its legs gracefully galloping in powerful, rhythmic strides. A man is waving his arms." title="">A horse is running [..]</h6>
+      </div>
+
+
 
       
       
@@ -396,6 +421,100 @@
             </div>
             <div class="captioned_video_ours">
                 <img class="gallery_img" src="static/images/details/gifs/turtle.gif" alt="man_fencing"/>
+                <h6 class="caption">Ours</h6>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered is-variable is-8">
+      <div class="column is-two-fifths is-centered has_border_right">
+        <div style="position: relative; width: 200px; margin: 0 auto;">
+          <img class="gallery_img" src="static/images/details/svgs/riding.svg" alt="deer"/>
+          <img class="gallery_img_path" src="static/images/details/paths/riding1.svg" alt="deer"/>
+          <img class="gallery_img_path" src="static/images/details/paths/riding2.svg" alt="deer"/>
+        </div>
+        <div style="height: 20px;"></div>
+        <div class="comp_gallery">
+          <div class="captioned_video">
+              <video class="gallery_img" autoplay loop muted playsinline>
+                  <source src="static/images/compare/riding/riding_tora.mp4" type="video/mp4">
+              </video>
+              <h6 class="caption">Tora</h6>
+          </div>
+          <div class="captioned_video">
+              <video class="gallery_img" autoplay loop muted playsinline>
+                  <source src="static/images/compare/riding/riding_wan2.1.mp4" type="video/mp4">
+              </video>
+              <h6 class="caption">Wan2.1</h6>
+          </div>
+          <div class="captioned_video">
+              <video class="gallery_img" autoplay loop muted playsinline>
+                  <source src="static/images/compare/riding/riding_toon.mp4" type="video/mp4">
+              </video>
+              <h6 class="caption">ToonCrafter</h6>
+          </div>
+          <div class="captioned_video">
+              <video class="gallery_img" autoplay loop muted playsinline>
+                  <source src="static/images/compare/riding/riding_dynamic.mp4" type="video/mp4">
+              </video>
+              <h6 class="caption">Dynamicrafter</h6>
+          </div>
+          <div class="captioned_video">
+              <img class="gallery_img" src="static/images/compare/riding/aniclipart.gif" alt="man_fencing"/>
+              <h6 class="caption">AniClipart</h6>
+          </div>
+          <div class="captioned_video">
+              <img class="gallery_img" src="static/images/compare/riding/sketch.gif" alt="man_fencing"/>
+              <h6 class="caption">LiveSketch</h6>
+          </div>
+          <div class="captioned_video_ours">
+              <img class="gallery_img" src="static/images/details/gifs/riding.gif" alt="man_fencing"/>
+              <h6 class="caption">Ours</h6>
+          </div>
+        </div>
+      </div>
+      <div class="column is-two-fifths is-centered has_border_left">
+        <div style="position: relative; width: 200px; margin: 0 auto;">
+            <img class="gallery_img" src="static/images/details/svgs/jian.svg" alt="deer"/>
+            <img class="gallery_img_path" src="static/images/details/paths/jian.svg" alt="deer"/>
+          </div>
+          <div style="height: 20px;"></div>
+          <div class="comp_gallery">
+            <div class="captioned_video">
+                <video class="gallery_img" autoplay loop muted playsinline>
+                    <source src="static/images/compare/jian/jian_tora.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">Tora</h6>
+            </div>
+            <div class="captioned_video">
+                <video class="gallery_img" autoplay loop muted playsinline>
+                    <source src="static/images/compare/jian/jian_wan2.1.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">Wan2.1</h6>
+            </div>
+            <div class="captioned_video">
+                <video class="gallery_img" autoplay loop muted playsinline>
+                    <source src="static/images/compare/jian/jian_toon.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">ToonCrafter</h6>
+            </div>
+            <div class="captioned_video">
+                <video class="gallery_img" autoplay loop muted playsinline>
+                    <source src="static/images/compare/jian/jian_dynamic.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">Dynamicrafter</h6>
+            </div>
+            <div class="captioned_video">
+                <img class="gallery_img" src="static/images/compare/jian/aniclipart.gif" alt="man_fencing"/>
+                <h6 class="caption">AniClipart</h6>
+            </div>
+            <div class="captioned_video">
+                <img class="gallery_img" src="static/images/compare/jian/sketch.gif" alt="man_fencing"/>
+                <h6 class="caption">LiveSketch</h6>
+            </div>
+            <div class="captioned_video_ours">
+                <img class="gallery_img" src="static/images/details/gifs/jian.gif" alt="man_fencing"/>
                 <h6 class="caption">Ours</h6>
             </div>
           </div>
