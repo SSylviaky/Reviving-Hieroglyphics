@@ -49,7 +49,7 @@
           </div>
           <br>
           <div class="is-size-4 publication-authors">
-            <span class="author-block">AAAI 2026 Under Review</span> 
+            <span class="author-block">Sigraph 2026 Under Review</span> 
           </div>
 
 
@@ -120,13 +120,20 @@
       <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
         <p>
-            Hieroglyphics, as one of the earliest writing systems, convey abstract meanings through symbolic and pictorial forms. While previous research has mainly focused on static hieroglyphs image generation and classification, the lack of dynamic and interpretable representations limits public engagement and understanding. 
-            To bridge this gap, we introduce the task of Controllable Hieroglyphics Animation Generation (CHAG), which aims to generate multi-character, trajectory-controllable hieroglyphics animations.
-            <br>
-            Despite the emergence of powerful Text-to-Video (T2V) and Image-to-Video (I2V) models, as well as various animation generation methods, directly applying them to symbolic glyphs remains challenging due to biases toward realism, structural instability, and lack of fine-grained motion control; moreover, none of these approaches are designed to preserve the symbolic integrity and motion semantics essential for hieroglyphics animation. 
-            To address these issues, we propose an end-to-end framework called HieroAnimate that transforms vector-based hieroglyphs inputs into expressive and coherent animations. 
-            Our approach extracts skeletons from glyphs to drive motion while preserving structural consistency through As-Rigid-As-Possible (ARAP) deformation. A differentiable video diffusion model enables local motion refinement guided by semantic prompts, while Bézier-curve-based trajectory modeling ensures precise global movement control. Furthermore, geometry-aware losses regularize skeleton structure throughout animation. 
-            Extensive experiments demonstrate that our method achieves high-quality, structurally consistent hieroglyphics animations with controllable multi-part motions, highlighting its potential for cultural revitalization and educational applications.
+          Hieroglyphics, as one of the earliest writing systems, convey meanings through symbolic visual structures that encode objects, actions, and abstract concepts. 
+          While prior research has primarily focused on static hieroglyph image generation and classification, the lack of dynamic and interpretable representations limits public understanding and engagement.
+          In this work, we introduce the task of Controllable Hieroglyphics Animation Generation, which aims to generate semantically correct, and structurally stable  animations for multiple hieroglyphic characters.
+          <br>
+          Directly applying existing Text-to-Video (T2V), Image-to-Video (I2V), or sketch-based animation models to hieroglyphics remains challenging due to their bias toward realism, structural instability, and limited support for fine-grained, part-wise motion control.
+          Moreover, existing clip-art and typography animation methods are not designed to preserve the symbolic structure and readability that are essential for hieroglyphic text animation.
+          To address these challenges, we propose HieroAnimate, a unified framework that transforms vector-based hieroglyph SVGs into expressive and coherent animations.
+          At the core of our framework is an MLLM-based Hieroglyphics Planner augmented with a hieroglyphics vector knowledge base, which directly operates on SVG representations to generate structured semantic descriptions, part-wise motion semantics, and coarse trajectory priors.
+          <br>
+          To ensure stable and interpretable motion control, the planned trajectories are further parameterized and smoothed via a continuous Bézier-to-B-spline process, yielding temporally coherent simple motion priors.
+          For structural control, we extract skeleton representations for each character part and initialize temporally aligned skeleton keyframes.
+          During animation generation, we adopt a differentiable T2V optimization framework that refines motions under semantic guidance, while enforcing geometry-aware regularization through skeleton length and conformal angle constraints.
+          The final animated shapes are reconstructed using As-Rigid-As-Possible (ARAP) deformation, preserving the structural stability, readability, and symbolic integrity of hieroglyphic text.
+          Extensive experiments demonstrate that HieroAnimate produces high-quality, controllable hieroglyphics animations with stable multi-part motions, highlighting its potential for cultural revitalization and educational applications.        
         </p>
         </div>
     </div>
@@ -171,9 +178,9 @@
 
         <div class="captioned_video">
           <div class="inner_gallery">
-              <img class="gallery_img small-img" src="static/images/details/character/deer.svg" alt="extra"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/deer.svg" alt="deer"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/deer.svg" alt="deer"/>
+              <!-- <img class="gallery_img small-img" src="static/images/details/character/deer.svg" alt="extra"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/deer.svg" alt="deer"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/deer.svg" alt="deer"/> -->
               <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/deer.gif" alt="deer"/>
             </div>
           <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A deer is running." title="">A deer is running [..]</h6>
@@ -181,9 +188,9 @@
       
       <div class="captioned_video">
         <div class="inner_gallery">
-            <img class="gallery_img small-img" src="static/images/details/character/turtle.svg" alt="extra"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/turtle.svg" alt="deer"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/turtle.svg" alt="deer"/>
+            <!-- <img class="gallery_img small-img" src="static/images/details/character/turtle.svg" alt="extra"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/turtle.svg" alt="deer"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/turtle.svg" alt="deer"/> -->
               <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/turtle.gif" alt="deer"/>
           </div>
           <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A turtle floats up and down in the water, extending and retracting its legs." title="">A turtle floats up [..]</h6>
@@ -191,29 +198,19 @@
 
       <div class="captioned_video">
         <div class="inner_gallery">
-            <img class="gallery_img small-img" src="static/images/details/character/wu.svg" alt="extra"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/wu.svg" alt="deer"/>
-              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/turtle.svg" alt="deer"/> -->
-              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/wu.gif" alt="deer"/>
-          </div>
-          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A woman dancer is dancing with her legs moving up and down, and waving her hands." title="">A dancer is dancing [..]</h6>
-      </div>
-
-      <div class="captioned_video">
-        <div class="inner_gallery">
-            <img class="gallery_img small-img" src="static/images/details/character/che.svg" alt="extra"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/che.svg" alt="deer"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/che.svg" alt="deer"/>
-              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/che.gif" alt="deer"/>
+            <!-- <img class="gallery_img small-img" src="static/images/details/character/che.svg" alt="extra"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/che.svg" alt="deer"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/che.svg" alt="deer"/> -->
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/7.gif" alt="deer"/>
           </div>
           <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A car is moving, its two wheels are turning." title="">A car is moving [..]</h6>
       </div>
 
       <div class="captioned_video">
         <div class="inner_gallery">
-            <img class="gallery_img small-img" src="static/images/details/character/ma.svg" alt="extra"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/ma.svg" alt="deer"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/ma.svg" alt="deer"/>
+            <!-- <img class="gallery_img small-img" src="static/images/details/character/ma.svg" alt="extra"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/ma.svg" alt="deer"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/ma.svg" alt="deer"/> -->
               <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/ma.gif" alt="deer"/>
           </div>
           <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A horse is running and jumping over." title="">A horse is running [..]</h6>
@@ -221,29 +218,29 @@
 
       <div class="captioned_video">
         <div class="inner_gallery">
-            <img class="gallery_img small-img" src="static/images/details/character/gu.svg" alt="extra"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/gu.svg" alt="deer"/>
+            <!-- <img class="gallery_img small-img" src="static/images/details/character/gu.svg" alt="extra"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/gu.svg" alt="deer"/> -->
               <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/gu.svg" alt="deer"/> -->
-              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/gu.gif" alt="deer"/>
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/6.gif" alt="deer"/>
           </div>
           <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="The drum is vibrating. A man is beating the drum." title="">The drum is vibrating [..]</h6>
       </div>
 
       <div class="captioned_video">
         <div class="inner_gallery">
-            <img class="gallery_img small-img" src="static/images/details/character/xiu.svg" alt="extra"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/xiu.svg" alt="deer"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/xiu.svg" alt="deer"/>
-              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/xiu.gif" alt="deer"/>
+            <!-- <img class="gallery_img small-img" src="static/images/details/character/xiu.svg" alt="extra"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/xiu.svg" alt="deer"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/xiu.svg" alt="deer"/> -->
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/10.gif" alt="deer"/>
           </div>
           <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A tree is waving in the wind. A person is dancing." title="">A tree is waving [..]</h6>
       </div>
 
       <div class="captioned_video">
         <div class="inner_gallery">
-            <img class="gallery_img small-img" src="static/images/details/character/zhu.svg" alt="extra"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/zhu.svg" alt="deer"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/zhu.svg" alt="deer"/>
+            <!-- <img class="gallery_img small-img" src="static/images/details/character/zhu.svg" alt="extra"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/zhu.svg" alt="deer"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/zhu.svg" alt="deer"/> -->
               <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/zhu.gif" alt="deer"/>
           </div>
           <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A man is praying, swaying back and forth on his knees. The torch is shaking." title="">A man is praying [..]</h6>
@@ -251,73 +248,115 @@
       
       <div class="captioned_video">
         <div class="inner_gallery">
-            <img class="gallery_img small-img" src="static/images/details/character/yan.svg" alt="extra"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/yan.svg" alt="deer"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/yan.svg" alt="deer"/>
-              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/yan.gif" alt="deer"/>
+            <!-- <img class="gallery_img small-img" src="static/images/details/character/yan.svg" alt="extra"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/yan.svg" alt="deer"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/yan.svg" alt="deer"/> -->
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/9.gif" alt="deer"/>
           </div>
           <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A cluster of flames is burning." title="">A cluster of flames [..]</h6>
       </div>
 
       <div class="captioned_video">
         <div class="inner_gallery">
-            <img class="gallery_img small-img" src="static/images/details/character/chun.svg" alt="extra"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/chun.svg" alt="deer"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/chun.svg" alt="deer"/>
-              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/chun.gif" alt="deer"/>
+            <!-- <img class="gallery_img small-img" src="static/images/details/character/chun.svg" alt="extra"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/chun.svg" alt="deer"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/chun.svg" alt="deer"/> -->
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/2.gif" alt="deer"/>
           </div>
-          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A person is is waving his arms. A tree is waving." title="">A person is is waving [..]</h6>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A fish is swimming." title="">A fish is swimming[..]</h6>
       </div>
 
       <div class="captioned_video">
         <div class="inner_gallery">
-            <img class="gallery_img small-img" src="static/images/details/character/xia.svg" alt="extra"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/xia.svg" alt="deer"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/xia.svg" alt="deer"/>
-              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/xia.gif" alt="deer"/>
+            <!-- <img class="gallery_img small-img" src="static/images/details/character/xia.svg" alt="extra"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/xia.svg" alt="deer"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/xia.svg" alt="deer"/> -->
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/3.gif" alt="deer"/>
           </div>
-          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A person is bowing vigorously up and down. A sun is shining." title="">A person is bowing [..]</h6>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A bird is flying with its swings." title="">A bird is flying [..]</h6>
       </div>
 
       <div class="captioned_video">
         <div class="inner_gallery">
-            <img class="gallery_img small-img" src="static/images/details/character/fen.svg" alt="extra"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/fen.svg" alt="deer"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/fen.svg" alt="deer"/>
-              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/fen.gif" alt="deer"/>
+            <!-- <img class="gallery_img small-img" src="static/images/details/character/fen.svg" alt="extra"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/fen.svg" alt="deer"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/fen.svg" alt="deer"/> -->
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/12.gif" alt="deer"/>
           </div>
-          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A cluster of fire is burning. A tree is waving. [2]A tree is waving." title="">A cluster of fire [..]</h6>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A cluster of fire is burning. Trees are waving." title="">A cluster of fire [..]</h6>
       </div>
 
       <div class="captioned_video">
         <div class="inner_gallery">
-            <img class="gallery_img small-img" src="static/images/details/character/pic3.svg" alt="extra"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/pic3.svg" alt="deer"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/pic3.svg" alt="deer"/>
-              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/pic3.gif" alt="deer"/>
+            <!-- <img class="gallery_img small-img" src="static/images/details/character/pic3.svg" alt="extra"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/pic3.svg" alt="deer"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/pic3.svg" alt="deer"/> -->
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/4.gif" alt="deer"/>
           </div>
-          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A deer is running. The sun is shining. A tree is waving." title="">A deer is running [..]</h6>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A person is surfing. The turtle is under the person holding him." title="">A person is surfing [..]</h6>
       </div>
 
       <div class="captioned_video">
         <div class="inner_gallery">
-            <img class="gallery_img small-img" src="static/images/details/character/qi.svg" alt="extra"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/riding.svg" alt="deer"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/riding1.svg" alt="deer"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/riding2.svg" alt="deer"/>
+            <!-- <img class="gallery_img small-img" src="static/images/details/character/qi.svg" alt="extra"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/riding.svg" alt="deer"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/riding1.svg" alt="deer"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/riding2.svg" alt="deer"/> -->
               <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/riding.gif" alt="deer"/>
           </div>
-          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A horse is running, with its legs gracefully galloping in powerful, rhythmic strides. A man is waving his arms." title="">A horse is running [..]</h6>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="The horse is galloping with its limbs constantly alternating, while the rider on its back is shouting loudly." title="">The horse is galloping [..]</h6>
       </div>
 
       <div class="captioned_video">
         <div class="inner_gallery">
-            <img class="gallery_img small-img" src="static/images/details/character/she.svg" alt="extra"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/jian.svg" alt="deer"/>
-              <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/jian.svg" alt="deer"/>
+            <!-- <img class="gallery_img small-img" src="static/images/details/character/she.svg" alt="extra"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/svgs/jian.svg" alt="deer"/> -->
+              <!-- <img class="gallery_img over grid_r_1 grid_c_1" src="static/images/details/paths/jian.svg" alt="deer"/> -->
               <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/jian.gif" alt="deer"/>
           </div>
-          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A horse is running, with its legs gracefully galloping in powerful, rhythmic strides. A man is waving his arms." title="">A horse is running [..]</h6>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="The archer is shooting an arrow, which is released in a parabolic trajectory." title="">The archer is shooting [..]</h6>
+      </div>
+
+      <div class="captioned_video">
+        <div class="inner_gallery">
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/1.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="The bird is soaring, the deer is darting, and the horse is galloping with its legs stretched out." title="">The bird is soaring [..]</h6>
+      </div>
+
+      <div class="captioned_video">
+        <div class="inner_gallery">
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/5.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A frog is trying hard to jump from one lotus leaf to another." title="">A frog is trying [..]</h6>
+      </div>
+
+      <div class="captioned_video">
+        <div class="inner_gallery">
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/8.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A little mouse is sneaking furtively from the right to the left." title="">A little mouse is sneaking [..]</h6>
+      </div>
+
+      <div class="captioned_video">
+        <div class="inner_gallery">
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/11.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="A man is driving a horse-drawn carriage to hunt, chasing after three prey." title="">A man is driving [..]</h6>
+      </div>
+
+      <div class="captioned_video">
+        <div class="inner_gallery">
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/pic3.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="The sun is moving across the sky, the trees are swaying gently, and the fawn is darting away." title="">The sun is moving [..]</h6>
+      </div>
+
+      <div class="captioned_video">
+        <div class="inner_gallery">
+              <img class="gallery_img under grid_r_1 grid_c_1" src="static/images/details/gifs/elephant.gif" alt="deer"/>
+          </div>
+          <h6 class="caption has-tooltip-multiline has-tooltip-bottom" data-tooltip="An elephant is walking from the right to the left toward the riverbank, and then it drinks water with its trunk." title="">An elephant is walking [..]</h6>
       </div>
 
 
@@ -345,17 +384,17 @@
     <div class="columns is-centered has-text-centered is-variable is-8">
       <div class="column is-two-fifths is-centered has_border_right">
         <div style="position: relative; width: 200px; margin: 0 auto;">
-          <img class="gallery_img" src="static/images/details/svgs/deer.svg" alt="deer"/>
-          <img class="gallery_img_path" src="static/images/details/paths/deer.svg" alt="deer"/>
+          <img class="gallery_img" src="static/images/details/svgs/deer_input.svg" alt="deer"/>
+          <!-- <img class="gallery_img_path" src="static/images/details/paths/deer.svg" alt="deer"/> -->
         </div>
         <div style="height: 20px;"></div>
         <div class="comp_gallery">
-          <div class="captioned_video">
+          <!-- <div class="captioned_video">
               <video class="gallery_img" autoplay loop muted playsinline>
                   <source src="static/images/compare/deer/Tora.mp4" type="video/mp4">
               </video>
-              <h6 class="caption">Tora</h6>
-          </div>
+              <h6 class="caption">Tora</h6> -->
+          <!-- </div> -->
           <div class="captioned_video">
               <video class="gallery_img" autoplay loop muted playsinline>
                   <source src="static/images/compare/deer/Wan2.1.mp4" type="video/mp4">
@@ -382,6 +421,14 @@
               <img class="gallery_img" src="static/images/compare/deer/livesketch.gif" alt="man_fencing"/>
               <h6 class="caption">LiveSketch</h6>
           </div>
+          <div class="captioned_video">
+            <img class="gallery_img" src="static/images/compare/deer/flipsketch-deer.gif" alt="man_fencing"/>
+            <h6 class="caption">FlipSketch</h6>
+        </div>
+        <div class="captioned_video">
+          <img class="gallery_img" src="static/images/compare/deer/groupsketch-deer.gif" alt="man_fencing"/>
+          <h6 class="caption">GroupSketch</h6>
+      </div>
           <div class="captioned_video_ours">
               <img class="gallery_img" src="static/images/details/gifs/deer.gif" alt="man_fencing"/>
               <h6 class="caption">Ours</h6>
@@ -390,17 +437,17 @@
       </div>
       <div class="column is-two-fifths is-centered has_border_left">
         <div style="position: relative; width: 200px; margin: 0 auto;">
-            <img class="gallery_img" src="static/images/details/svgs/turtle.svg" alt="deer"/>
-            <img class="gallery_img_path" src="static/images/details/paths/turtle.svg" alt="deer"/>
+            <img class="gallery_img" src="static/images/details/svgs/turtle_input.svg" alt="deer"/>
+            <!-- <img class="gallery_img_path" src="static/images/details/paths/turtle.svg" alt="deer"/> -->
           </div>
           <div style="height: 20px;"></div>
           <div class="comp_gallery">
-            <div class="captioned_video">
+            <!-- <div class="captioned_video">
                 <video class="gallery_img" autoplay loop muted playsinline>
                     <source src="static/images/compare/turtle/Tora.mp4" type="video/mp4">
                 </video>
                 <h6 class="caption">Tora</h6>
-            </div>
+            </div> -->
             <div class="captioned_video">
                 <video class="gallery_img" autoplay loop muted playsinline>
                     <source src="static/images/compare/turtle/Wan2.1.mp4" type="video/mp4">
@@ -427,6 +474,14 @@
                 <img class="gallery_img" src="static/images/compare/turtle/livesketch.gif" alt="man_fencing"/>
                 <h6 class="caption">LiveSketch</h6>
             </div>
+            <div class="captioned_video">
+              <img class="gallery_img" src="static/images/compare/turtle/flipsketch-turtle.gif" alt="man_fencing"/>
+              <h6 class="caption">FlipSketch</h6>
+          </div>
+          <div class="captioned_video">
+            <img class="gallery_img" src="static/images/compare/turtle/groupsketch-turtle.gif" alt="man_fencing"/>
+            <h6 class="caption">GroupSketch</h6>
+        </div>
             <div class="captioned_video_ours">
                 <img class="gallery_img" src="static/images/details/gifs/turtle.gif" alt="man_fencing"/>
                 <h6 class="caption">Ours</h6>
@@ -438,63 +493,71 @@
     <div class="columns is-centered has-text-centered is-variable is-8">
       <div class="column is-two-fifths is-centered has_border_right">
         <div style="position: relative; width: 200px; margin: 0 auto;">
-          <img class="gallery_img" src="static/images/details/svgs/riding.svg" alt="deer"/>
-          <img class="gallery_img_path" src="static/images/details/paths/riding1.svg" alt="deer"/>
-          <img class="gallery_img_path" src="static/images/details/paths/riding2.svg" alt="deer"/>
+          <img class="gallery_img" src="static/images/details/svgs/bird.svg" alt="deer"/>
+          <!-- <img class="gallery_img_path" src="static/images/details/paths/riding1.svg" alt="deer"/> -->
+          <!-- <img class="gallery_img_path" src="static/images/details/paths/riding2.svg" alt="deer"/> -->
         </div>
         <div style="height: 20px;"></div>
         <div class="comp_gallery">
-          <div class="captioned_video">
+          <!-- <div class="captioned_video">
               <video class="gallery_img" autoplay loop muted playsinline>
                   <source src="static/images/compare/riding/riding_tora.mp4" type="video/mp4">
               </video>
               <h6 class="caption">Tora</h6>
-          </div>
+          </div> -->
           <div class="captioned_video">
               <video class="gallery_img" autoplay loop muted playsinline>
-                  <source src="static/images/compare/riding/riding_wan2.1.mp4" type="video/mp4">
+                  <source src="static/images/compare/bird/Wan_bird.mp4" type="video/mp4">
               </video>
               <h6 class="caption">Wan2.1</h6>
           </div>
           <div class="captioned_video">
               <video class="gallery_img" autoplay loop muted playsinline>
-                  <source src="static/images/compare/riding/riding_toon.mp4" type="video/mp4">
+                  <source src="static/images/compare/bird/ToonCrafter-bird.mp4" type="video/mp4">
               </video>
               <h6 class="caption">ToonCrafter</h6>
           </div>
           <div class="captioned_video">
               <video class="gallery_img" autoplay loop muted playsinline>
-                  <source src="static/images/compare/riding/riding_dynamic.mp4" type="video/mp4">
+                  <source src="static/images/compare/bird/dynamic_bird.mp4" type="video/mp4">
               </video>
               <h6 class="caption">Dynamicrafter</h6>
           </div>
           <div class="captioned_video">
-              <img class="gallery_img" src="static/images/compare/riding/aniclipart.gif" alt="man_fencing"/>
+              <img class="gallery_img" src="static/images/compare/bird/aniclipart-bird.gif" alt="man_fencing"/>
               <h6 class="caption">AniClipart</h6>
           </div>
           <div class="captioned_video">
-              <img class="gallery_img" src="static/images/compare/riding/sketch.gif" alt="man_fencing"/>
+              <img class="gallery_img" src="static/images/compare/bird/livesketch-bird.gif" alt="man_fencing"/>
               <h6 class="caption">LiveSketch</h6>
           </div>
+          <div class="captioned_video">
+            <img class="gallery_img" src="static/images/compare/bird/flipsketch-bird.gif" alt="man_fencing"/>
+            <h6 class="caption">FlipSketch</h6>
+        </div>
+          <div class="captioned_video">
+            <img class="gallery_img" src="static/images/compare/bird/groupsketch-bird.gif" alt="man_fencing"/>
+            <h6 class="caption">GroupSketch</h6>
+        </div>
           <div class="captioned_video_ours">
-              <img class="gallery_img" src="static/images/details/gifs/riding.gif" alt="man_fencing"/>
+              <img class="gallery_img" src="static/images/compare/bird/ours.gif" alt="man_fencing"/>
               <h6 class="caption">Ours</h6>
           </div>
         </div>
       </div>
       <div class="column is-two-fifths is-centered has_border_left">
         <div style="position: relative; width: 200px; margin: 0 auto;">
-            <img class="gallery_img" src="static/images/details/svgs/jian.svg" alt="deer"/>
-            <img class="gallery_img_path" src="static/images/details/paths/jian.svg" alt="deer"/>
+            <img class="gallery_img" src="static/images/details/svgs/jian_input.svg" alt="deer"/>
+            <!-- <img class="gallery_img_path" src="static/images/details/paths/jian.svg" alt="deer"/> -->
           </div>
           <div style="height: 20px;"></div>
           <div class="comp_gallery">
-            <div class="captioned_video">
+            <!-- <div class="captioned_video">
                 <video class="gallery_img" autoplay loop muted playsinline>
                     <source src="static/images/compare/jian/jian_tora.mp4" type="video/mp4">
                 </video>
                 <h6 class="caption">Tora</h6>
-            </div>
+            </div> -->
             <div class="captioned_video">
                 <video class="gallery_img" autoplay loop muted playsinline>
                     <source src="static/images/compare/jian/jian_wan2.1.mp4" type="video/mp4">
@@ -521,6 +584,14 @@
                 <img class="gallery_img" src="static/images/compare/jian/sketch.gif" alt="man_fencing"/>
                 <h6 class="caption">LiveSketch</h6>
             </div>
+            <div class="captioned_video">
+              <img class="gallery_img" src="static/images/compare/jian/flipsketch-jian.gif" alt="man_fencing"/>
+              <h6 class="caption">FlipSketch</h6>
+          </div>
+          <div class="captioned_video">
+            <img class="gallery_img" src="static/images/compare/jian/she_groupsketch.gif" alt="man_fencing"/>
+            <h6 class="caption">GroupSketch</h6>
+        </div>
             <div class="captioned_video_ours">
                 <img class="gallery_img" src="static/images/details/gifs/jian.gif" alt="man_fencing"/>
                 <h6 class="caption">Ours</h6>
@@ -529,101 +600,9 @@
       </div>
     </div>
 
-    <div class="columns is-centered has-text-centered is-variable is-8">
-        <div class="column is-two-fifths is-centered has_border_right">
-          <div style="position: relative; width: 200px; margin: 0 auto;">
-            <img class="gallery_img" src="static/images/details/svgs/xiang.svg" alt="deer"/>
-            <img class="gallery_img_path" src="static/images/details/paths/xiang1.svg" alt="deer"/>
-            <img class="gallery_img_path" src="static/images/details/paths/xiang2.svg" alt="deer"/>
-          </div>
-          <div style="height: 20px;"></div>
-          <div class="comp_gallery">
-            <div class="captioned_video">
-                <video class="gallery_img" autoplay loop muted playsinline>
-                    <source src="static/images/compare/xiang/tora_xiang.mp4" type="video/mp4">
-                </video>
-                <h6 class="caption">Tora</h6>
-            </div>
-            <div class="captioned_video">
-                <video class="gallery_img" autoplay loop muted playsinline>
-                    <source src="static/images/compare/xiang/Wan2.1_xiang.mp4" type="video/mp4">
-                </video>
-                <h6 class="caption">Wan2.1</h6>
-            </div>
-            <div class="captioned_video">
-                <video class="gallery_img" autoplay loop muted playsinline>
-                    <source src="static/images/compare/xiang/tooncrafter_xiang.mp4" type="video/mp4">
-                </video>
-                <h6 class="caption">ToonCrafter</h6>
-            </div>
-            <div class="captioned_video">
-                <video class="gallery_img" autoplay loop muted playsinline>
-                    <source src="static/images/compare/xiang/dynamic_xiang.mp4" type="video/mp4">
-                </video>
-                <h6 class="caption">Dynamicrafter</h6>
-            </div>
-            <div class="captioned_video">
-                <img class="gallery_img" src="static/images/compare/xiang/aniclipart.gif" alt="man_fencing"/>
-                <h6 class="caption">AniClipart</h6>
-            </div>
-            <div class="captioned_video">
-                <img class="gallery_img" src="static/images/compare/xiang/livesketch.gif" alt="man_fencing"/>
-                <h6 class="caption">LiveSketch</h6>
-            </div>
-            <div class="captioned_video_ours">
-                <img class="gallery_img" src="static/images/details/gifs/xiang.gif" alt="man_fencing"/>
-                <h6 class="caption">Ours</h6>
-            </div>
-          </div>
-        </div>
-        <div class="column is-two-fifths is-centered has_border_left">
-          <div style="position: relative; width: 200px; margin: 0 auto;">
-              <img class="gallery_img" src="static/images/details/svgs/fen.svg" alt="deer"/>
-              <img class="gallery_img_path" src="static/images/details/paths/fen.svg" alt="deer"/>
-            </div>
-            <div style="height: 20px;"></div>
-            <div class="comp_gallery">
-              <div class="captioned_video">
-                  <video class="gallery_img" autoplay loop muted playsinline>
-                      <source src="static/images/compare/fen/tora.mp4" type="video/mp4">
-                  </video>
-                  <h6 class="caption">Tora</h6>
-              </div>
-              <div class="captioned_video">
-                  <video class="gallery_img" autoplay loop muted playsinline>
-                      <source src="static/images/compare/fen/Wan2.1.mp4" type="video/mp4">
-                  </video>
-                  <h6 class="caption">Wan2.1</h6>
-              </div>
-              <div class="captioned_video">
-                  <video class="gallery_img" autoplay loop muted playsinline>
-                      <source src="static/images/compare/fen/tooncrafter.mp4" type="video/mp4">
-                  </video>
-                  <h6 class="caption">ToonCrafter</h6>
-              </div>
-              <div class="captioned_video">
-                  <video class="gallery_img" autoplay loop muted playsinline>
-                      <source src="static/images/compare/fen/dynamic.mp4" type="video/mp4">
-                  </video>
-                  <h6 class="caption">Dynamicrafter</h6>
-              </div>
-              <div class="captioned_video">
-                  <img class="gallery_img" src="static/images/compare/fen/aniclipart.gif" alt="man_fencing"/>
-                  <h6 class="caption">AniClipart</h6>
-              </div>
-              <div class="captioned_video">
-                  <img class="gallery_img" src="static/images/compare/fen/livesketch.gif" alt="man_fencing"/>
-                  <h6 class="caption">LiveSketch</h6>
-              </div>
-              <div class="captioned_video_ours">
-                  <img class="gallery_img" src="static/images/details/gifs/fen.gif" alt="man_fencing"/>
-                  <h6 class="caption">Ours</h6>
-              </div>
-            </div>
-        </div>
-      </div>
+
   <div class="section is-centered has-text-centered">
-    We compare our method to six baselines: Tora</a>, Wan2.1</a>, ToonCrafter</a>, Dynamicrafter</a>, AniClipart </a>and LiveSketch</a>.
+    We compare our method to seven baselines: Wan2.1</a>, ToonCrafter</a>, Dynamicrafter</a>, AniClipart</a>, LiveSketch</a>, FlipSketch</a>, and GroupSketch.</div>.
     </div>
   </div>
 </section>
@@ -646,7 +625,7 @@
 
               <div class="captioned_video">
                 <img class="gallery_img" src="static/images/details/svgs/ma.svg"/>
-                <img class="gallery_img_path" src="static/images/details/paths/ma.svg"/>
+                <!-- <img class="gallery_img_path" src="static/images/details/paths/ma.svg"/> -->
               </div>
           
               <div class="captioned_video">
@@ -672,7 +651,7 @@
 
               <div class="captioned_video">
                 <img class="gallery_img" src="static/images/details/svgs/xia.svg"/>
-                <img class="gallery_img_path" src="static/images/details/paths/xia.svg"/>
+                <!-- <img class="gallery_img_path" src="static/images/details/paths/xia.svg"/> -->
               </div>
           
               <div class="captioned_video">
@@ -704,7 +683,7 @@
                 <h6 class="caption">Default</h6>
               </div>
               <div class="captioned_video">
-                <h6 class="caption">w/o Trajectory Extractor</h6>
+                <h6 class="caption">w/o Trajectory Parameterization and Smoothing</h6>
               </div>
               <div class="captioned_video">
                 <h6 class="caption"> w/o Skeleton Generation</h6>
