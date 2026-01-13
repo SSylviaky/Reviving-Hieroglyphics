@@ -12,10 +12,10 @@
   
   <meta charset="utf-8">
   <meta name="description"
-        content="Reviving Hieroglyphics: From Static Ancient Symbols to Expressive Animation">
-  <meta name="keywords" content="Hieroglyphics Animation, Text-to-Video Priors, Trajectory Control, Multi Vector characters Animation, As-Rigid-As-Possible">
+        content="LivingGlyphs: Automated Synthesis of Expressive Animation from Pictographic Glyphs">
+  <meta name="keywords" content=" Pictographic Animation, Text-to-Video Priors, Vector glyphs Animation, As-Rigid-As-Possible">
   <meta name="viewport" content="width=device-width, initial-scale=0.1">
-  <title>Reviving Hieroglyphics: From Static Ancient Symbols to Expressive Animation</title>
+  <title>LivingGlyphs: Automated Synthesis of Expressive Animation from Pictographic Glyphs</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -43,7 +43,7 @@
     <div class="container is-max-desktop" id="top">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Reviving Hieroglyphics: <br>From Static Ancient Symbols to<br>Expressive Animation</h1>
+          <h1 class="title is-1 publication-title">LivingGlyphs: <br> Automated Synthesis of Expressive Animation<br>from Pictographic Glyphs</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">ANONYMOUS AUTHOR(S)</a></span>
           </div>
@@ -120,20 +120,19 @@
       <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
         <p>
-          Hieroglyphics, as one of the earliest writing systems, convey meanings through symbolic visual structures that encode objects, actions, and abstract concepts. 
-          While prior research has primarily focused on static hieroglyph image generation and classification, the lack of dynamic and interpretable representations limits public understanding and engagement.
-          In this work, we introduce the task of Controllable Hieroglyphics Animation Generation, which aims to generate semantically correct, and structurally stable  animations for multiple hieroglyphic characters.
+          Pictography, among the earliest known writing systems, conveys meaning through symbolic visual structures that represent objects, actions, and abstract concepts.
+          While prior research has largely focused on static pictography recognition and completion, the absence of dynamic and interpretable representations limits public understanding and engagement.
+          In this work, we aim to generate semantically correct and structurally stable animations for pictographic glyphs.
           <br>
-          Directly applying existing Text-to-Video (T2V), Image-to-Video (I2V), or sketch-based animation models to hieroglyphics remains challenging due to their bias toward realism, structural instability, and limited support for fine-grained, part-wise motion control.
-          Moreover, existing clip-art and typography animation methods are not designed to preserve the symbolic structure and readability that are essential for hieroglyphic text animation.
-          To address these challenges, we propose HieroAnimate, a unified framework that transforms vector-based hieroglyph SVGs into expressive and coherent animations.
-          At the core of our framework is an MLLM-based Hieroglyphics Planner augmented with a hieroglyphics vector knowledge base, which directly operates on SVG representations to generate structured semantic descriptions, part-wise motion semantics, and coarse trajectory priors.
+          Directly applying existing Image-to-Video (I2V), sketch and clip-art animation models or typography animation methods to pictographic glyphs remains challenging due to their bias toward realism, structural instability, and limited support for fine-grained, part-wise motion control.
+          To address these challenges, we propose LivingGlyphs, a unified end-to-end framework that transforms pictographic SVGs into expressive and coherent animations.
+          At the core of our framework is an MLLM-based Pictographic Planner augmented with a pictography vector knowledge base, which directly operates on SVG representations to generate structured semantic descriptions, part-wise motion semantics, and coarse trajectory priors.
           <br>
-          To ensure stable and interpretable motion control, the planned trajectories are further parameterized and smoothed via a continuous Bézier-to-B-spline process, yielding temporally coherent simple motion priors.
-          For structural control, we extract skeleton representations for each character part and initialize temporally aligned skeleton keyframes.
+          To ensure stable and interpretable motion control, the generated trajectories are further parameterized and smoothed via a continuous Bézier-to-B-spline process, yielding temporally coherent simple motion priors.
+          For structural control, we extract skeleton representations for each glyph part and initialize temporally aligned skeleton keyframes.
           During animation generation, we adopt a differentiable T2V optimization framework that refines motions under semantic guidance, while enforcing geometry-aware regularization through skeleton length and conformal angle constraints.
-          The final animated shapes are reconstructed using As-Rigid-As-Possible (ARAP) deformation, preserving the structural stability, readability, and symbolic integrity of hieroglyphic text.
-          Extensive experiments demonstrate that HieroAnimate produces high-quality, controllable hieroglyphics animations with stable multi-part motions, highlighting its potential for cultural revitalization and educational applications.        
+          The final animated shapes are reconstructed using As-Rigid-As-Possible (ARAP) deformation, preserving the structural stability, readability, and symbolic integrity of pictographic text.
+          Extensive experiments demonstrate that LivingGlyphs produces high-quality, living pictographic animations with stable multi-part motions, highlighting its potential for cultural revitalization and educational applications.
         </p>
         </div>
     </div>
